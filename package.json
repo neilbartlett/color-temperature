@@ -1,0 +1,26 @@
+{
+  "name": "color-temperature",
+  "version": "0.0.0",
+  "description": "Kelvin color temperature to RGB convertor",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \"Error: no test specified\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neilbartlett/color-temperature.git"
+  },
+  "keywords": [
+    "color",
+    "temperature",
+    "kelvin",
+    "colour",
+    "RGB"
+  ],
+  "author": "Neil Bartlett <neil.e.bartlett@gmail.com> (http://neilbartlett.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neilbartlett/color-temperature/issues"
+  },
+  "homepage": "https://github.com/neilbartlett/color-temperature"
+}
