@@ -1,18 +1,16 @@
-#color-temperature
+color-temperature
+=================
+
 ![Color Spectrum](http://neilbartlett.github.io/color-temperature/images/color-temperature-spectrum.png)
 
 Converts a color temperature in Kelvin to an RGB color space.
 
-More details on color temperature and the algorithm can be found at [here](http://zombieprototypes.com).
-
-# Usage
-
-Install color-temparture as a local module:
+More details on color temperature and the algorithm can be found  [here](http://zombieprototypes.com).
+## Installation
 
 `$ npm install --save color-temperture`
 
-
-Then include `color-temperature`:
+## Usage
 
 ```js
 var ct = require('color-temperature');
@@ -57,11 +55,11 @@ enc.end(pixels);
 ```
 
 
-# API
+## API
 
-The API provides two methods. Both convert from Kelvin to RGB. The first method provides a more accurate conversion. The performance of the two methods is approximately the same. The first method is preferred. The second method is provided for comparison purposes.
+The API provides two methods. Both convert from Kelvin to RGB. The first method provides a more accurate conversion. The performance of the two methods is approximately the same. The second method is provided for comparison purposes. The first method is preferred.
 
-NOTE The conversion uses an approximation technique and is suitable for photo-mainpulation and other non-critical uses. It is not suitable for medical or other high accuracy use cases.
+NOTE The conversions use approximations and are suitable for photo-mainpulation and other non-critical uses. They are not suitable for medical or other high accuracy use cases.
 
 Accuracy is best between 1000K and 40000K.
 
@@ -76,10 +74,16 @@ require('color-temperature').colorTemperature2rgbOriginalVersion(kelvin);
 ```
 Ths is version is a JavaScript port of code from Tanner Helland.
 
-# Examples
+## Examples
 
 There are examples in the examples directory.
 
-# License
+## License
 
 The code is released under an MIT license.
+
+## Release History
+
+* 0.1.0 Initial release
+
+[![NPM](https://nodei.co/npm/color-temperature.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/color-temperature/)

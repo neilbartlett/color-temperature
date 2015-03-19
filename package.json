@@ -18,8 +18,13 @@
     "RGB"
   ],
   "author": "Neil Bartlett <neil.e.bartlett@gmail.com> (http://neilbartlett.com)",
-  "license": "MIT",
-  "bugs": {
+  "licenses": [
+  {
+    "type": "MIT",
+    "url": "https://github.com/neilbartlett/color-temperature/blob/master/LICENSE.txt"
+  }
+  ],
+    "bugs": {
     "url": "https://github.com/neilbartlett/color-temperature/issues"
   },
   "homepage": "https://github.com/neilbartlett/color-temperature"
