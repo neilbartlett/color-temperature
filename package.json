@@ -1,6 +1,6 @@
 {
   "name": "color-temperature",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Kelvin color temperature to RGB convertor",
   "main": "index.js",
   "scripts": {

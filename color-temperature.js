@@ -34,7 +34,7 @@
  * Input: color temperature in degrees Kelvin
  * Output: json object of red, green and blue components of the Kelvin temperature
  */
-colorTemperature2rgbVersionTannerHelland = function(kelvin) {
+colorTemperature2rgbOriginalVersion = function(kelvin) {
 
   var temperature = kelvin / 100.0;
   var red, green, blue;
@@ -161,4 +161,4 @@ colorTemperature2rgb = function(kelvin) {
 
 // API
 exports.colorTemperature2rgb=colorTemperature2rgb;
-exports.colorTemperature2rgbVersionTannerHelland=colorTemperature2rgbVersionTannerHelland;
+exports.colorTemperature2rgbOriginalVersion=colorTemperature2rgbOriginalVersion;
