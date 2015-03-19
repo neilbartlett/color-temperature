@@ -172,7 +172,7 @@ module.exports.rgb2colorTemperature = rgb2colorTemperature = function(rgb) {
   var maxTemperature = 40000;
   while (maxTemperature - minTemperature > epsilon) {
     temperature = (maxTemperature + minTemperature) / 2;
-    testrgb = colorTemperature2rgb(temperature);
+    testRGB = colorTemperature2rgb(temperature);
     if ((testRGB.blue / testRGB.red) >= (rgb.blue / rgb.red)) {
       maxTemperature = temperature;
     } else {
