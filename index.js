@@ -15,17 +15,20 @@
 * in the RGB colorspace. The function is based on a curve fit on standard sparse
 * set of Kelvin to RGB mappings.
 *
-* Two conversions are presented here. The first is a JS version of the
-* algorithm developed by Tanner Helland. The second is a slightly more accurate
-* conversion based on a refitting of the original data using different curve fit
-* functions. The performance cost of the two approaches is very similar and in
-* general the second algorithm is preferred.
+* Two conversions are presented here. The one colorTempertature2RGBUSingTH
+* is a JS version of the algorithm developed by Tanner Helland. The second is a
+* slightly more accurate conversion based on a refitting of the original data
+* using different curve fit functions. The performance cost of the two
+* approaches is very similar and in general the second algorithm is preferred.
 *
-* NOTE The approximation is suitable for photo-mainpulation and other
-* non-critical uses. It is not suitable for medical or other high accuracy
+* NOTE The approximations used are suitable for photo-mainpulation and other
+* non-critical uses. They are not suitable for medical or other high accuracy
 * use cases.
 *
 * Accuracy is best between 1000K and 40000K.
+*
+* See http://github.com/neilbartlett/color-temperature for further details.
+*
 **/
 
 
@@ -34,7 +37,7 @@
  * Input: color temperature in degrees Kelvin
  * Output: json object of red, green and blue components of the Kelvin temperature
  */
-colorTemperature2rgbOriginalVersion = function(kelvin) {
+ module.exports.colorTemperature2rgbUsingTH = colorTemperature2rgbUsingTH = function(kelvin) {
 
   var temperature = kelvin / 100.0;
   var red, green, blue;
@@ -87,7 +90,7 @@ colorTemperature2rgbOriginalVersion = function(kelvin) {
   * Input: color temperature in degrees Kelvin
   * Output: json object of red, green and blue components of the Kelvin temperature
  */
-colorTemperature2rgb = function(kelvin) {
+ module.exports.colorTemperature2rgb = colorTemperature2rgb = function(kelvin) {
 
   var temperature = kelvin / 100.0;
   var red, green, blue;
@@ -159,6 +162,22 @@ colorTemperature2rgb = function(kelvin) {
   return {red: Math.round(red), blue: Math.round(blue), green: Math.round(green)};
 }
 
-// API
-exports.colorTemperature2rgb=colorTemperature2rgb;
-exports.colorTemperature2rgbOriginalVersion=colorTemperature2rgbOriginalVersion;
+/**
+ convert an rgb in JSON format into to a Kelvin color temperature
+ */
+module.exports.rgb2colorTemperature = rgb2colorTemperature = function(rgb) {
+  var temperature, testRGB;
+  var epsilon=0.4;
+  var minTemperature = 1000;
+  var maxTemperature = 40000;
+  while (maxTemperature - minTemperature > epsilon) {
+    temperature = (maxTemperature + minTemperature) / 2;
+    testrgb = colorTemperature2rgb(temperature);
+    if ((testRGB.blue / testRGB.red) >= (rgb.blue / rgb.red)) {
+      maxTemperature = temperature;
+    } else {
+      minTemperature = temperature;
+    }
+  }
+  return Math.round(temperature);
+};

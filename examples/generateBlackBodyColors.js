@@ -1,6 +1,6 @@
 var fs = require('fs');
 var png_encoder = require('png-stream');
-var ct = require('../color-temperature.js');
+var ct = require('color-temperature.js');
 var width = 500;
 var height = 100;
 var kelvinStart = 10;
