@@ -57,9 +57,16 @@ enc.end(pixels);
 
 ## API
 
-The API provides two methods. Both convert from Kelvin to RGB. The first method provides a more accurate conversion. The performance of the two methods is approximately the same. The second method is provided for comparison purposes. The first method is preferred.
 
-NOTE The conversions use approximations and are suitable for photo-mainpulation and other non-critical uses. They are not suitable for medical or other high accuracy use cases.
+In the following API, The color RGB is represented in JSON format eg [0,128,255] would be
+
+{
+  red : 0,
+  green : 128,
+  blue : 255
+}
+
+NOTE The conversions below use approximations and are suitable for photo-mainpulation and other non-critical uses. They are not suitable for medical or other high accuracy use cases.
 
 Accuracy is best between 1000K and 40000K.
 
@@ -67,12 +74,22 @@ Accuracy is best between 1000K and 40000K.
 ```js
 require('color-temperature').colorTemperature2rgb(kelvin);
 ```
-This is a refitting of the original data and provides a slightly more accurate conversion.
+Convert a color temperature in Kelvin to RGB.
+This method uses an approximation based on a curve fit of data to a sparse RGB to
+Kelvin mapping.
 
 ```js
-require('color-temperature').colorTemperature2rgbOriginalVersion(kelvin);
+require('color-temperature').colorTemperature2rgbUsingTH(kelvin);
 ```
-Ths is version is a JavaScript port of code from Tanner Helland.
+This is a version is a JavaScript port of code from Tanner Helland. This method
+is mainly for comparison purposes. Generally colorTemperature2rgb provides more
+accurate results.
+
+```js
+require('color-temperature').rgb2colorTemperature(rgb);
+```
+
+Convert a color in RGB format to a color temperature in Kelvin.
 
 ## Examples
 
