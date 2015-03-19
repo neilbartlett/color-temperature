@@ -1,9 +1,9 @@
 {
   "name": "color-temperature",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Kelvin color temperature to RGB convertor",
   "main": "index.js",
-  "private" : true,
+  "private" : false,
   "dependencies" : {},
   "scripts": {
     "test": "\"echo \"Error: no test specified\" && exit 1\""
@@ -17,7 +17,9 @@
     "temperature",
     "kelvin",
     "colour",
-    "RGB"
+    "RGB",
+    "black body",
+    "spectrum"
   ],
   "author": "Neil Bartlett <neil.e.bartlett@gmail.com> (http://neilbartlett.com)",
   "license": "MIT",
