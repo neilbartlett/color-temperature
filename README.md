@@ -1,3 +1,4 @@
+#color-temperature
 ![Color Spectrum](http://neilbartlett.github.io/color-temperature/images/color-temperature-spectrum.png)
 
 Converts a color temperature in Kelvin to an RGB color space.
@@ -52,24 +53,33 @@ for (var w = 0; w < width; w += 1) {
 
 var enc = new png_encoder.Encoder(width, height);
 enc.pipe(fs.createWriteStream('color-temperature-'+kelvinStart+'-'+kelvinEnd+'.png'));
-enc.end(pixels);```
+enc.end(pixels);
+```
 
 
 # API
 
-API of color-temperature provides two methods
+The API provides two methods. Both convert from Kelvin to RGB. The first method provides a more accurate conversion. The performance of the two methods is approximately the same. The first method is preferred. The second method is provided for comparison purposes.
+
+NOTE The conversion uses an approximation technique and is suitable for photo-mainpulation and other non-critical uses. It is not suitable for medical or other high accuracy use cases.
+
+Accuracy is best between 1000K and 40000K.
+
 
 ```js
 require('color-temperature').colorTemperature2rgb(kelvin);
 ```
+This is a refitting of the original data and provides a slightly more accurate conversion.
 
 ```js
 require('color-temperature').colorTemperature2rgbOriginalVersion(kelvin);
 ```
+Ths is version is a JavaScript port of code from Tanner Helland.
 
-These both provide the same functionality to convert from Kelvin to RGB. The
-colorTemperature2rgbOriginalVersion method is a JavaScript port of code from Tanner Helland. The colorTemperature2rgb method is
-refitting of the original data and provides a slightly more accurate version of
-code.
+# Examples
+
+There are examples in the examples directory.
 
 # License
+
+The code is released under an MIT license.
