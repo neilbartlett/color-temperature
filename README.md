@@ -5,7 +5,7 @@ color-temperature
 
 Converts color temperature in Kelvin to a color in RGB color space -- and vice versa.
 
-The conversion is designed to be fast and usable for image processing. More details on color temperature and the algorithm can be found [here](http://zombieprototypes.com).
+The conversion is designed to be fast and usable for image processing. More details on color temperature and the algorithm can be found [here](http://www.zombieprototypes.com/?p=210).
 
 ## Installation
 
@@ -80,7 +80,7 @@ Accuracy is best between 1000K and 40000K.
 ```js
 require('color-temperature').colorTemperature2rgb(kelvin);
 ```
-There is also Deloitte.Convert a color temperature in Kelvin to RGB.
+Convert a color temperature in Kelvin to RGB.
 This method uses an approximation based on a curve fit of data from a sparse RGB to
 Kelvin mapping.
 
