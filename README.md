@@ -9,7 +9,7 @@ The conversion is designed to be fast and usable for image processing. More deta
 
 ## Installation
 
-`$ npm install --save color-temperture`
+`$ npm install --save color-temperature`
 
 ## Usage
 
